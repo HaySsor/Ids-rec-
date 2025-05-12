@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <title>Ids Rekrutacja</title>
+</head>
+<body>
+<div class="body-wrapper">
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <div class="logo"></div>
+                <span class="company-name f-16px-w-500-upper">Forma’sint</span>
+                <span class="company-title">idomods <span>&lt;/&gt;</span></span>
+            </div>
+            <div class="navbar-links">
+                <div data-burger-menu class="burger-menu">
+                    <img src="./images/icons/burger.svg" alt="Show menu button">
+                    <span class="f-16px-w-500-upper">Menu</span>
+                </div>
+                <div data-link-menu class="nav-links-menu">
+                    <div data-link-shadow class="nav-link-menu-shadow"></div>
+                    <div class="nav-link-menu-body">
+                        <div class="nav-link-menu-body-top">
+                            <div class="logo"></div>
+                            <div data-burger-close class="burger-menu">
+                                <img src="./images/icons/x-mark.svg" alt="close menu button">
+                                <span>Close</span>
+                            </div>
+                        </div>
+                        <ul class="nav-link-menu-body-links">
+                            <li class="nav-link-menu-body-link">
+                                <a class="f-16px-w-500-upper" data-link href="#home"> Home</a>
+                            </li>
+                            <li class="nav-link-menu-body-link">
+                                <a class="f-16px-w-500-upper" data-link href="#featured-products"> Featured products</a>
+                            </li>
+                            <li class="nav-link-menu-body-link">
+                                <a class="f-16px-w-500-upper" data-link href="#product-list"> Product listing</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-user">
+                <img src="./images/icons/user.svg" alt="User avatar" />
+                <span class="f-16px-w-500-upper">Frontend Developer</span>
+            </div>
+        </nav>
+    </header>
+    <section id="home" class="hero">
+        <div class="hero-title">
+            <img src="./images/title.svg" alt="hero image" />
+        </div>
+        <div class="hero-image">
+            <img src="./images/hero-image.jpg" alt="hero image" />
+        </div>
+    </section>
+    <section id="featured-products" class="featured-products">
+        <h3 class="section-subtitle f-16px-w-500-upper">Featured products</h3>
+        <h2 class="section-title f-32px-w-700">Browse featured</h2>
+        <div class="featured-products-wrapper">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div data-swiper-elements class="swiper-wrapper">
+                    <!-- Slides -->
+                </div>
+                <!--                &lt;!&ndash; If we need navigation buttons &ndash;&gt;-->
+                <div class="swiper-button-prev">  </div>
+                <div class="swiper-button-next">  </div>
+
+                <!--                &lt;!&ndash; If we need scrollbar &ndash;&gt;-->
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+    </section>
+    <section id="product-list" class="products-section">
+        <div class="products-section-top">
+            <h3 class="products-title f-16px-w-500-upper">Number of products per page</h3>
+            <div data-product-select class="custom-select">
+                <div class="custom-select-top">
+                    <span data-custom-select-selected>14</span>
+                    <img src="./images/icons/select-arrow.svg" alt="select-arrow" aria-hidden="true" />
+                </div>
+                <div class="custom-select-body">
+                    <span data-custom-option data-value="14">14</span>
+                    <span data-custom-option data-value="24">24</span>
+                    <span data-custom-option data-value="36">36</span>
+                </div>
+            </div>
+        </div>
+
+        <div data-product-grid class="products-section-grid">
+            <div class="product-cta">
+                <div class="product-cta-top">
+                    <span class="f-16px-w-500-upper">Forma’sint.</span>
+                    <h3>You'll look and feel like the champion.</h3>
+                </div>
+                <div class="product-cta-bottom">
+                    <button class="product-cta-button">
+                        <span class="f-16px-w-500-upper">Check this out</span>
+                        <img src="./images/icons/button-arrow.svg" alt="arrow" aria-hidden="true" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div data-popup class="popup">
+        <div data-popup-shadow class="popup-shadow"></div>
+        <div class="popup-body">
+            <div class="popup-top">
+                <span data-popup-title class="popup-title">ID: 01</span>
+                <div data-popup-close class="popup-close">
+                    <img src="./images/icons/x-mark.svg" alt="close menu button">
+                    <span>Close</span>
+                </div>
+            </div>
+            <div class="popup-main loading">
+                <img data-popup-image src="./images/products/kask.png" alt="produkt" class="popup-image" loading="lazy" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>

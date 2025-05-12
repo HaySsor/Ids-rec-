@@ -1,0 +1,139 @@
+.header{
+    position:sticky;
+    top: 0;
+    background-color: var(--primary-white);
+    z-index: 999;
+}
+.navbar{
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 24px;
+    aspect-ratio: 1/1;
+    background-image: url("../images/icons/logo.svg");
+}
+
+.navbar-logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.navbar-logo:hover .logo{
+    background-image: url("../images/icons/logo-hover.svg");
+}
+
+.company-title{
+    display: none;
+}
+
+.burger-menu{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-user{
+    display:none;
+}
+
+.nav-links-menu{
+    position: fixed;
+    inset: 0;
+    isolation: isolate;
+    transform: translateX(100%);
+    transition: transform .3s;
+}
+.nav-link-menu-open{
+    transform: translateX(0);
+}
+
+.nav-link-menu-shadow{
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background-color: var(--primary-main);
+    opacity: 0.8;
+}
+.nav-link-menu-body{
+    position: absolute;
+    height: 100%;
+    width: 82%;
+    right: 0;
+    top: 0;
+    background-color: var(--primary-white);
+    padding: 0 16px 0 32px;
+}
+
+.nav-link-menu-body-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+.nav-link-menu-body-links{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+    margin-top: 80px;
+    list-style: none;
+}
+.nav-link-menu-body-link a {
+    text-decoration: none;
+}
+
+.nav-link-menu-body-link a:hover{
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+@media (width > 1250px) {
+    .navbar{
+        padding: 25px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position:sticky;
+        top: 0;
+    }
+
+    .navbar-user{
+        display:flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .navbar-user img{
+        width:24px;
+        aspect-ratio: 1/1;
+    }
+    .burger-menu{
+        display: none;
+    }
+    .nav-links-menu{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        isolation: isolate;
+        transform: translateX(0%);
+    }
+    .nav-link-menu-shadow{
+      display: none;
+    }
+    .nav-link-menu-body-links{
+        margin-top: 0;
+        flex-direction: row;
+    }
+    .nav-link-menu-body-top{
+        display: none;
+    }
+    .nav-link-menu-body{
+        position: relative;
+        width: 100%;
+    }
+    .nav-link-menu-body-link a {
+        width: max-content;
+    }
+}
