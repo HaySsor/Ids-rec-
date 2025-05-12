@@ -9,7 +9,6 @@
 .hero-title{
     width: 100%;
     img{
-        height: 77px;
         width: 100%;
         object-fit: cover;
         object-position: left;
