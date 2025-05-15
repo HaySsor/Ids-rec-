@@ -15,6 +15,7 @@
     width: 24px;
     aspect-ratio: 1/1;
     background-image: url("../images/icons/logo.svg");
+    transition: background 0.2s;
 }
 
 .navbar-logo{
@@ -40,24 +41,34 @@
     display:none;
 }
 
-.nav-links-menu{
+.nav-links-menu {
     position: fixed;
     inset: 0;
     isolation: isolate;
     transform: translateX(100%);
-    transition: transform .3s;
-}
-.nav-link-menu-open{
-    transform: translateX(0);
+    transition: transform 0.3s 0.2s;
 }
 
-.nav-link-menu-shadow{
+.nav-links-menu.nav-link-menu-open {
+    transform: translateX(0);
+    transition: transform 0.3s 0s;
+}
+
+
+.nav-link-menu-shadow {
     position: absolute;
     z-index: 0;
     inset: 0;
     background-color: var(--primary-main);
-    opacity: 0.8;
+    opacity: 0;
+    transition: opacity 0.2s 0s;
 }
+
+.nav-links-menu.nav-link-menu-open .nav-link-menu-shadow {
+    opacity: 0.8;
+    transition: opacity 0.2s 0.2s;
+}
+
 .nav-link-menu-body{
     position: absolute;
     height: 100%;
@@ -83,6 +94,7 @@
 }
 .nav-link-menu-body-link a {
     text-decoration: none;
+    transition: text-decoration .3s;
 }
 
 .nav-link-menu-body-link a:hover{
@@ -120,7 +132,7 @@
         transform: translateX(0%);
     }
     .nav-link-menu-shadow{
-      display: none;
+        display: none;
     }
     .nav-link-menu-body-links{
         margin-top: 0;
@@ -135,5 +147,14 @@
     }
     .nav-link-menu-body-link a {
         width: max-content;
+    }
+    .company-title{
+        display: inline-block;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        line-height: 140%;
+        color: var(--primary-main);
+        margin-left: 20px;
     }
 }

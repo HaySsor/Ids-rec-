@@ -101,7 +101,7 @@ const createProduct = (element) => {
     <div data-element-id="${element.id}" class="product-box">
         <div class="swiper-image-wrapper">
           <img src="${element.img}" alt="featured image" />
-          <div class="swiper-image-buttons">
+          <div class="swiper-image-buttons ${!element.special ? 'no-badge' : ''}">
           ${element?.special === 'bestseller' ? '<div class="product-badge f-16px-w-500-upper bestseller">bestseller</div>' : ''}
           ${element?.special === 'limited' ? '<div class="product-badge f-16px-w-500-upper limited">limited edition</div>' : ''}
            <div class="favorite"></div>
@@ -127,8 +127,6 @@ const mainProductsGrid = document.querySelector('[data-product-grid]');
 const customSelect = document.querySelector('[data-product-select]');
 const customOptions = document.querySelectorAll('[data-custom-option]');
 const customSelectSelected = document.querySelector('[data-custom-select-selected]');
-let currentPage = 1;
-let currentSize = 14
 let isLoading = false;
 
 customSelect.addEventListener('click', () => {
@@ -158,29 +156,40 @@ const createMainProduct = (item) => {
     </div>`;
 };
 
+let currentPage = 1;
+let currentSize = 14;
+
+let lastSize = currentSize;
+
 const loadProducts = async () => {
     if (isLoading) return;
     isLoading = true;
 
     try {
-        const response = await fetch(`https://brandstestowy.smallhost.pl/api/random?pageNumber=${currentPage}&pageSize=${currentSize}`);
+        if (currentSize !== lastSize) {
+            currentPage = 1;
+            mainProductsGrid.innerHTML = '';
+            lastSize = currentSize;
+        }
+
+        const response = await fetch(
+            `https://brandstestowy.smallhost.pl/api/random?pageNumber=${currentPage}&pageSize=${currentSize}`
+        );
         const data = await response.json();
 
         data.data.forEach(item => {
             mainProductsGrid.insertAdjacentHTML('beforeend', createMainProduct(item));
         });
 
-        // ⬇️ Po wstawieniu zdjęć, teraz łapiemy nowe <img> i dodajemy eventy:
+        // obsługa klas loading → loaded
         const images = mainProductsGrid.querySelectorAll('.image-wrapper.loading img');
-
         images.forEach(img => {
             img.addEventListener('load', () => {
-                img.parentElement.classList.remove('loading');
-                img.parentElement.classList.add('loaded');
+                img.parentElement.classList.replace('loading', 'loaded');
             });
         });
 
-        currentPage++;
+        currentPage++;  // przejdź do kolejnej "strony"
     } catch (error) {
         console.error('Błąd podczas pobierania produktów:', error);
     } finally {
@@ -190,7 +199,6 @@ const loadProducts = async () => {
 
 window.addEventListener('scroll', () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
     if (scrollTop + clientHeight >= scrollHeight - 5) {
         loadProducts();
     }

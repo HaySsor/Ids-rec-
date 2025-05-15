@@ -18,6 +18,7 @@
     border: 1px solid transparent;
     border-radius: 6px 6px 0 0;
     border-bottom: none;
+    cursor: pointer;
 }
 .custom-select-top{
     display: flex;
@@ -62,6 +63,7 @@
     line-height: 140%;
     text-transform: uppercase;
     border-bottom: 1px solid var(--primary-gray);
+    cursor: pointer;
 }
 .custom-select-body span:last-child{
     border-bottom: none;
@@ -102,25 +104,22 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* żeby zdjęcia dobrze się dopasowały */
+    object-fit: cover;
     opacity: 0;
     transition: opacity 0.5s ease;
-    border-radius: 4px; /* dla estetyki */
+    border-radius: 4px;
 }
 
-/* Jak zdjęcie się załaduje */
 .image-wrapper.loaded img {
     opacity: 1;
 }
 
-/* Efekt "ładowania" (migający szkielet) */
 .image-wrapper.loading {
     background: linear-gradient(90deg, var(--primary-gray), #f5f5f5, var(--primary-gray));
     background-size: 200% 100%;
     animation: loadingPlaceholder 1.5s infinite;
 }
 
-/* Animacja tła "ładowanie" */
 @keyframes loadingPlaceholder {
     0% {
         background-position: 200% 0;
@@ -130,7 +129,6 @@
     }
 }
 
-/* Twoje ID */
 .single-product-box span {
     position: absolute;
     top: 8px;
@@ -190,6 +188,7 @@
     gap: 8px;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 

@@ -9,10 +9,10 @@
 .hero-title{
     width: 100%;
     img{
-        height: 50px;
         width: 100%;
         object-fit: cover;
         object-position: left;
+        max-width: 918px;
     }
 }
 .hero-image{
@@ -25,13 +25,6 @@
         border-radius: 8px;
     }
 }
-@media (width > 700px) {
-    .hero-title{
-        img{
-            height: 76px;
-        }
-    }
-}
 
 @media (width > 1250px) {
     .hero{
@@ -41,7 +34,6 @@
     .hero-title{
         width: 100%;
         img{
-            height: 138px;
             object-fit: cover;
         }
     }
